@@ -23,19 +23,19 @@ class Calculator {
 
         when (symbol) {
             '+' -> {
-                Storage.result = AddOperation().operate(numbers)
+                Storage.result = addOperation.operate(numbers)
             }
 
             '-' -> {
-                Storage.result = SubstractOperation().operate(numbers)
+                Storage.result = substractOperation.operate(numbers)
             }
 
             '*' -> {
-                Storage.result = MultiplyOperation().operate(numbers)
+                Storage.result = multiplyOperation.operate(numbers)
             }
 
             '/' -> {
-                Storage.result = DivideOperation().operate(numbers)
+                Storage.result = dvideOperation.operate(numbers)
             }
         }
     }
