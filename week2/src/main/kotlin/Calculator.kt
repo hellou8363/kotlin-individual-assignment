@@ -1,7 +1,3 @@
-fun main() {
-    Guidance().usageGuide()
-}
-
 class Calculator {
     companion object {
         private var order = 0
