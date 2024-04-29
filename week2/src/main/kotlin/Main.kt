@@ -1,3 +1,4 @@
 fun main() {
-    Guidance().usageGuide()
+    val inputResult = Guidance().usageGuide()
+    inputResult?.let { Storage().save(values = it) }
 }
