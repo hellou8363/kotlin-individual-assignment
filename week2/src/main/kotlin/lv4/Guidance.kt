@@ -1,20 +1,13 @@
+package lv4
+
 class Guidance {
 
-    fun usageGuide(): String? {
+    fun usageGuide() {
         println("========= 계산기 ==========")
         println("계산할 식을 입력해주세요.")
         println("예) 2 + 5 * 4 / 3")
         println("계산기 종료 : x")
         print("계산식 : ")
-
-        val input = readln()
-
-        if (input == "x") {
-            println("계산기를 종료합니다.")
-            return null
-        }
-
-        return input
     }
 
     fun resultGuide(result: Number) {
