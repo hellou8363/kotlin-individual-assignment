@@ -12,7 +12,7 @@ class Calculator {
             return Guidance().resultGuide(Storage.result)
         }
 
-        var symbol = symbolsStorage[order]
+        val symbol = symbolsStorage[order]
         val numbers = listOf(Storage.result, numbersStorage[order + 1])
 
         order++
