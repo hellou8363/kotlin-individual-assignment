@@ -10,10 +10,6 @@ val multiplyOperation = Operation { numbers: List<Number> -> numbers[0].toLong()
 
 class DivideOperation : Operation {
     override fun operate(numbers: List<Number>): Number {
-
-        println("numbers = ${numbers}")
-        println(numbers[0] == 0)
-        println(numbers[1])
         if (numbers[0] == 0L || numbers[1] == 0L) {
             throw ArithmeticException("0으로 나눌 수 없습니다.")
         }

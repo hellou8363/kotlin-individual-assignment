@@ -25,9 +25,6 @@ fun main() {
             val symbols = value[0].map { it.toString() }
             val numbers = value[1].map { it.toString().toLong() }
 
-            println(value[0])
-            println(value[1])
-
             // 저장된 값으로 계산
             result = numbers[order]
             while (order < symbols.size) {
