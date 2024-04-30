@@ -1,38 +1,24 @@
 class Calculator {
-    companion object {
-        private var order = 0
-    }
 
-    fun next() {
+    fun operate(symbol: String, numbers: List<Number>): Number {
 
-        val numbersStorage = Storage.numbersStorage
-        val symbolsStorage = Storage.symbolsStorage
-
-        if (order == symbolsStorage.size) {
-            return Guidance().resultGuide(Storage.result)
-        }
-
-        val symbol = symbolsStorage[order]
-        val numbers = listOf(Storage.result, numbersStorage[order + 1])
-
-        order++
-
-        when (symbol) {
-            '+' -> {
-                Storage.result = addOperation.operate(numbers)
+        return when (symbol) {
+            "+" -> {
+                addOperation.operate(numbers)
             }
 
-            '-' -> {
-                Storage.result = substractOperation.operate(numbers)
+            "-" -> {
+                substractOperation.operate(numbers)
             }
 
-            '*' -> {
-                Storage.result = multiplyOperation.operate(numbers)
+            "*" -> {
+                multiplyOperation.operate(numbers)
             }
 
-            '/' -> {
-                Storage.result = dvideOperation.operate(numbers)
+            "/" -> {
+                DivideOperation().operate(numbers)
             }
+            else -> throw NumberFormatException("계산 중 문제가 발생했습니다.")
         }
     }
 }
