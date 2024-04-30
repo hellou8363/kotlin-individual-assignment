@@ -23,13 +23,15 @@ class Validation {
 
 
             if (symbols.contains(v)) { // +, -, *, /인지 체크
-                if (v == '-' && number.isEmpty()) { // 현재 값이 -이고 number가 빈 값인 경우
+                if (v == '-' && number.isBlank()) { // 현재 값이 -이고 number가 빈 값인 경우
                     tempSymbol = "-" // 음수 값 처리를 위한 임시 저장
                 } else { // 기호가 -가 아닌 경우
                     symbolsStorage.add(v) // 기호를 저장
-                    numbersStorage.add(number.toLong()) // 숫자를 저장
-                    tempSymbol = ""
-                    number = ""
+                    if (number.isNotBlank()) {
+                        numbersStorage.add(number.toLong()) // 숫자를 저장
+                        tempSymbol = ""
+                        number = ""
+                    }
                 }
             }
 
@@ -52,8 +54,9 @@ class Validation {
             throw NumberFormatException("정확한 식이 아닙니다.")
         }
 
-        // 기호 없이 숫자만 입력되는 경우에 대한 처리
-        if (symbolsStorage.isEmpty()) {
+        // 1. 기호 없이 숫자만 입력되는 경우에 대한 처리
+        // 2. 기호, 숫자가 입력되었으나 숫자가 1개인 경우
+        if (symbolsStorage.isEmpty() || numbersStorage.size - symbolsStorage.size != 1) {
             throw Exception("정확한 식이 아닙니다.")
         }
 
