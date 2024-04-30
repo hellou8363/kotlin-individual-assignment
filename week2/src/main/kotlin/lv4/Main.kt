@@ -30,7 +30,6 @@ fun main() {
             while (order < symbols.size) {
                 result = calculator.operate(symbols[order], arrayListOf(result, numbers[order + 1]))
                 order++
-                println("order ===> $order")
             }
 
             println("계산된 결괏값을 안내드립니다.")
